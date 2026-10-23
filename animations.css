@@ -1,0 +1,154 @@
+/*
+  Mero Anniversary — subtle editorial motion layer
+  Add this file beside style.css and link it after style.css in index.html.
+*/
+
+:root {
+  --premium-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* A restrained, staggered entrance for the opening screen. */
+.hero-intro {
+  opacity: 0;
+  animation: premium-intro 1050ms var(--premium-motion-ease) var(--intro-delay, 0ms) both;
+}
+
+@keyframes premium-intro {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+/* Scroll-led storytelling: first reveal plus a subtle replay each time the element re-enters view. */
+html.motion-ready .scroll-reveal {
+  opacity: 0;
+  translate: 0 26px;
+  filter: blur(2px);
+  transition:
+    opacity 950ms var(--premium-motion-ease),
+    translate 1100ms var(--premium-motion-ease),
+    filter 950ms var(--premium-motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, translate, filter;
+}
+
+html.motion-ready .scroll-reveal.is-visible {
+  opacity: 1;
+  translate: 0 0;
+  filter: blur(0);
+  will-change: auto;
+}
+
+
+/* Replays a restrained reveal on every new entry into the viewport. The element remains visible when it leaves view. */
+html.motion-ready .scroll-reveal.scroll-replay {
+  animation: premium-scroll-replay 850ms var(--premium-motion-ease) var(--reveal-delay, 0ms) both;
+}
+
+@keyframes premium-scroll-replay {
+  from {
+    opacity: 0.58;
+    translate: 0 14px;
+    filter: blur(1.4px);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    filter: blur(0);
+  }
+}
+
+/* Keep the featured photo unchanged in spirit: it gently resolves into focus. */
+.favorite-photo-mat #favoritePhotoImage {
+  opacity: 0;
+  transform: scale(1.025);
+  clip-path: inset(1.2% 1.2%);
+  transition:
+    opacity 1050ms ease 100ms,
+    transform 1500ms var(--premium-motion-ease) 80ms,
+    clip-path 1400ms var(--premium-motion-ease) 80ms,
+    filter 800ms ease;
+}
+
+.favorite-photo-mat #favoritePhotoImage.is-loaded {
+  opacity: 1;
+  transform: scale(1);
+  clip-path: inset(0 0 0 0);
+}
+
+/* Very subtle refinement on the memories, not a dramatic zoom. */
+.memory-card img {
+  transition: filter 800ms ease;
+}
+
+.memory-card:hover img,
+.memory-card:focus-visible img {
+  filter: saturate(1.055);
+}
+
+/* The favorite photo mat moves slowly and precisely, like a product detail panel. */
+.favorite-photo-mat {
+  transition:
+    transform 700ms var(--premium-motion-ease),
+    box-shadow 700ms var(--premium-motion-ease);
+}
+
+/* The opened photograph feels like a small gallery, rather than a sudden popup. */
+.photo-dialog[open] {
+  animation: gallery-open 420ms var(--premium-motion-ease) both;
+}
+
+.photo-dialog[open]::backdrop {
+  animation: gallery-backdrop 320ms ease both;
+}
+
+@keyframes gallery-open {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gallery-backdrop {
+  from { background: rgb(42 23 34 / 0%); backdrop-filter: blur(0); }
+  to { background: rgb(42 23 34 / 72%); backdrop-filter: blur(4px); }
+}
+
+/* Respect accessibility settings: no hidden content or motion for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-intro {
+    opacity: 1 !important;
+    animation: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  html.motion-ready .scroll-reveal,
+  html.motion-ready .scroll-reveal.is-visible,
+  html.motion-ready .scroll-reveal.scroll-replay {
+    opacity: 1 !important;
+    translate: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  .favorite-photo-mat #favoritePhotoImage,
+  .favorite-photo-mat #favoritePhotoImage.is-loaded {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .photo-dialog[open],
+  .photo-dialog[open]::backdrop {
+    animation: none !important;
+  }
+}

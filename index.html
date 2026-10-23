@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff4f5">
+  <meta name="description" content="A little anniversary website made with love for Mero.">
+  <title>For Mero, With Love ♥</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+  <div class="floating-hearts" aria-hidden="true"></div>
+  <header class="hero section-wrap">
+    <div class="eyebrow"><span class="tiny-heart">♥</span> A LITTLE WEBSITE, JUST FOR YOU</div>
+    <h1>Happy Anniversary,<br><em>Mero</em></h1>
+    <p class="hero-copy">A tiny place for some of my favorite memories<br class="desktop-only"> and one very important person.</p>
+    <a class="primary-button" href="#memories">Let's look back <span aria-hidden="true">↓</span></a>
+    <div class="hero-note">Made with love, just for you <span>♥</span></div>
+    <div class="hero-sparkle sparkle-one">✦</div><div class="hero-sparkle sparkle-two">✧</div>
+  </header>
+
+  <main>
+    <section id="favorite" class="favorite-section" aria-labelledby="favoriteTitle">
+      <div class="favorite-inner section-wrap">
+        <div class="favorite-heading">
+          <p class="eyebrow">THE ONE THAT MEANS THE MOST</p>
+          <h2 id="favoriteTitle">Some feelings don't need <em>explaining.</em></h2>
+          <p>And some pictures will always mean more than words can hold.</p>
+        </div>
+
+        <div class="favorite-feature">
+          <button class="favorite-photo-button" id="favoritePhotoButton" type="button" aria-label="Open our favorite photo">
+            <span class="favorite-photo-mat">
+              <img id="favoritePhotoImage" src="images/favorite-photo.jpg" alt="Our favorite picture together" loading="eager">
+              <span id="favoritePhotoPlaceholder" class="favorite-photo-placeholder" hidden>
+                <span class="placeholder-heart" aria-hidden="true">♡</span>
+                <strong>Your favorite photo goes here</strong>
+                <small>Add it as <code>favorite-photo.jpg</code> inside the images folder.</small>
+              </span>
+            </span>
+          </button>
+          <div class="favorite-photo-label">
+            <span class="label-heart" aria-hidden="true">♥</span>
+            <div>
+              <strong>Our favorite picture</strong>
+              <small>One feeling. A thousand memories.</small>
+            </div>
+            <span class="label-sparkle" aria-hidden="true">✧</span>
+          </div>
+          <button class="favorite-note-toggle" id="favoriteNoteToggle" type="button" aria-expanded="false" aria-controls="favoriteNote">
+            <span>Why this one means so much</span><span class="toggle-symbol" aria-hidden="true">+</span>
+          </button>
+          <article id="favoriteNote" class="favorite-note" hidden>
+            <p>I don't think I'll ever find the perfect words for what this picture means to me.</p>
+            <p>I just know that when I look at it, there's a feeling I want to keep close—a feeling that's ours, even if I can't explain it to anyone else.</p>
+            <p>Maybe some things don't need the perfect words. Maybe they just need to be <em>ours.</em> ♡</p>
+          </article>
+        </div>
+        <p class="favorite-footnote">Some memories are beautiful. This one is <em>ours.</em> ♡</p>
+      </div>
+    </section>
+
+    <section id="memories" class="memories section-wrap">
+      <div class="section-heading">
+        <p class="eyebrow">LITTLE MOMENTS, BIG FEELINGS</p>
+        <h2>Our little <em>memory lane</em></h2>
+        <p>Some moments pass. The ones with you stay with me.</p>
+      </div>
+      <div class="photo-grid" id="photoGrid"></div>
+      <p class="photo-tip">Every picture has a story. These are a few of ours. ♡</p>
+    </section>
+
+    <section class="letter-section">
+      <div class="letter-card">
+        <div class="letter-stamp">FOR<br>MY LOVE <span>♥</span></div>
+        <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+        <h2>There's a message<br><em>just for you.</em></h2>
+        <p class="letter-intro">Whenever you're ready, open it.</p>
+        <button id="openLetter" class="primary-button" type="button" aria-expanded="false" aria-controls="loveLetter">Open your letter <span aria-hidden="true">♡</span></button>
+        <article id="loveLetter" class="love-letter" hidden>
+          <p class="letter-greeting">My Mero,</p>
+          <p>Happy anniversary, my love. ♡</p>
+          <p>I made this little corner of the internet for you, because you deserve to be celebrated—not just today, but in all the small moments in between.</p>
+          <p>Thank you for the memories we've made, the laughs we share, and the little things that somehow mean the most. I hope we keep collecting moments, learning each other, and choosing each other through every new chapter.</p>
+          <p>These pictures are only a few pieces of our story. The best part is that we still have so much left to write.</p>
+          <p class="letter-signoff">Always yours,<br><em>your favorite person (hopefully) ♥</em></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="countdown-section section-wrap">
+      <p class="eyebrow">AND THE STORY KEEPS GOING</p>
+      <h2>Until our next <em>anniversary</em></h2>
+      <p class="countdown-copy">One more year of us, one more reason to celebrate.</p>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div class="time-unit"><span id="days">000</span><small>Days</small></div>
+        <div class="time-unit"><span id="hours">00</span><small>Hours</small></div>
+        <div class="time-unit"><span id="minutes">00</span><small>Minutes</small></div>
+        <div class="time-unit"><span id="seconds">00</span><small>Seconds</small></div>
+      </div>
+      <p class="countdown-footnote">Counting down to another day that's ours. <span>♥</span></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>For Mero, always <span>♥</span></p>
+    <small>Made with love · Our story, still unfolding</small>
+  </footer>
+
+  <dialog id="photoDialog" class="photo-dialog">
+    <button class="dialog-close" id="closePhoto" aria-label="Close photo">×</button>
+    <img id="dialogImage" src="" alt="">
+    <p id="dialogCaption"></p>
+  </dialog>
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
