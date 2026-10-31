@@ -200,3 +200,90 @@ footer small { color: var(--muted); font-size: .75rem; }
   .favorite-note-toggle { padding: 14px; font-size: .9rem; }
   .favorite-note { padding: 19px 17px 6px; font-size: .94rem; }
 }
+/* Password Welcome Screen */
+
+.password-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #fff9f6;
+  text-align: center;
+}
+
+.password-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 24px;
+}
+
+.gate-heart {
+  font-size: 55px;
+  color: #d95f78;
+  margin-bottom: 20px;
+}
+
+.password-card h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 7vw, 3.5rem);
+  line-height: 1.15;
+  margin: 15px 0;
+}
+
+.password-card h1 em {
+  color: var(--rose);
+}
+
+.password-card > p {
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.password-card form {
+  display: grid;
+  gap: 13px;
+}
+
+.password-card input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #f0dce0;
+  border-radius: 10px;
+  background: white;
+  text-align: center;
+  font: inherit;
+  outline: none;
+}
+
+.password-card input:focus {
+  border-color: var(--rose);
+}
+
+.password-card button {
+  justify-content: center;
+}
+
+#passwordError {
+  color: #c64b62;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.password-card small {
+  display: block;
+  color: var(--muted);
+  margin-top: 25px;
+}
+
+.password-gate.is-unlocking {
+  animation: passwordExit .55s ease forwards;
+}
+
+@keyframes passwordExit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
