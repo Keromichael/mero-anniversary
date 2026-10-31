@@ -131,3 +131,28 @@ for (let i = 0; i < 10; i++) {
   heart.style.fontSize = `${12 + Math.random() * 14}px`;
   floatingHearts.appendChild(heart);
 }
+// Password Welcome Screen
+
+const correctPassword = "CHANGE_THIS_PASSWORD";
+
+const passwordForm = document.getElementById("passwordForm");
+const passwordInput = document.getElementById("sitePassword");
+const passwordGate = document.getElementById("passwordGate");
+const passwordError = document.getElementById("passwordError");
+
+passwordForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (passwordInput.value === correctPassword) {
+    passwordGate.classList.add("is-unlocking");
+
+    setTimeout(() => {
+      passwordGate.remove();
+    }, 550);
+
+  } else {
+    passwordError.hidden = false;
+    passwordInput.value = "";
+    passwordInput.focus();
+  }
+});
