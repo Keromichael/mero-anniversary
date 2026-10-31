@@ -133,7 +133,7 @@ for (let i = 0; i < 10; i++) {
 }
 // Password Welcome Screen
 
-const correctPassword = "CHANGE_THIS_PASSWORD";
+const correctPassword = "832027";
 
 const passwordForm = document.getElementById("passwordForm");
 const passwordInput = document.getElementById("sitePassword");
