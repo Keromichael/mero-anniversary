@@ -14,7 +14,7 @@ const memories = [
   { image: "images/memory-06.jpg", title: "A smile I love", caption: "This is one of my favorite versions of happiness." },
   { image: "images/memory-07.jpg", title: "Our kind of fun", caption: "More moments like this, please." },
   { image: "images/memory-08.jpg", title: "A sweet memory", caption: "Keeping this one close to my heart." },
-  { image: "images/memory-09.jpeg", title: "Just you and me", caption: "My favorite story is the one we're writing." },
+  { image: "images/memory-09.jpg", title: "Just you and me", caption: "My favorite story is the one we're writing." },
 ];
 
 const photoGrid = document.getElementById("photoGrid");
